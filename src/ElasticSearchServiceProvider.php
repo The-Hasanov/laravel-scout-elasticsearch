@@ -33,7 +33,7 @@ final class ElasticSearchServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__.'/../config/elasticsearch.php' => config_path('elasticsearch.php'),
+            __DIR__.'/../config/elasticsearch.php' => app()->configPath('elasticsearch.php'),
         ], 'config');
     }
 

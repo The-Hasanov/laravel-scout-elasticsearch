@@ -60,8 +60,8 @@ final class ImportCommand extends Command
         $this->line($startMessage);
 
         /* @var ImportSource $source */
-        dispatch($job)->allOnQueue($source->syncWithSearchUsingQueue())
-            ->allOnConnection($source->syncWithSearchUsing());
+        dispatch($job->allOnQueue($source->syncWithSearchUsingQueue())
+            ->allOnConnection($source->syncWithSearchUsing()));
 
         $doneMessage = trans(config('scout.queue') ? 'scout::import.done.queue' : 'scout::import.done', [
             'searchable' => $searchable,
